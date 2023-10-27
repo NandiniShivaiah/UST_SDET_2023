@@ -2,6 +2,74 @@
 /*Console.WriteLine("Hello, World!");*/
 
 using Assignment1;
+using Assignment1.UserException;
+//using Assignment1.UserException;
+
+List<CallRecord> callRecords = new List<CallRecord>()
+{
+    new(123,"98675","7 min"),
+    new(456,"12345","4 min"),
+    new(789,"65432","6 min")
+
+};
+Console.WriteLine("The Call Records Details");
+
+foreach (CallRecord call in callRecords)
+{
+    Console.WriteLine("Call Id: " + call.CallID + " Phone Number: " + call.PhoneNumber +
+        " CallTime: " + call.CallTime);
+
+}
+Console.WriteLine();
+Console.WriteLine("Calls with the specific Phone Number");
+foreach (CallRecord calls in callRecords)
+{
+    calls.CallHistory(calls);
+
+}
+
+Dictionary<string, int> callCount = new Dictionary<string, int>();
+foreach (CallRecord calls in callRecords)
+{
+    if (callCount.ContainsKey(calls.PhoneNumber))
+    {
+        callCount[calls.PhoneNumber]++;
+    }
+    else
+    {
+        callCount[calls.PhoneNumber] = 1;
+    }
+}
+
+Console.WriteLine();
+Console.WriteLine("Total Calls with the specific Phone Number");
+foreach (var i in callCount)
+{
+    Console.WriteLine(" Phone Number: " + i.Key + " - Total Calls: " + i.Value);
+}
+Console.WriteLine();
+
+
+
+
+/*try
+{
+    Patient patient1 = new(11, "aa", 25, "diabetics");
+    patient1.AddPatient(patient1);
+}
+catch (AgeException ex)
+{
+    Console.WriteLine(ex.Message);
+}
+try
+{
+    Patient patient2 = new(11, "aa", 125, "diabetics");
+    patient2.AddPatient(patient2);
+}
+catch (AgeException ex)
+{
+    Console.WriteLine(ex.Message);
+}
 
 
 /*Customer customer1 = new Customer(1,"Jin",98897654,2000.00);
@@ -19,7 +87,7 @@ foreach (Customer customer in customers)
 {
   
     Console.WriteLine("CustomerName:" +customer.Name + "CustomerId:" + customer.CustomerId + "Phonenumber:" + customer.PhoneNumber + "Balance:" + customer.Balance);
-}*/
+}
 
 
 /*CallRecord call1 = new CallRecord(1, 2345, "4min");
@@ -36,9 +104,9 @@ foreach (CallRecord call
 {
     Console.WriteLine("CallId:" + calls.CallId + "CallTime:" + calls.CallTime);
 
-}*/
+}
 
-try
+/*try
 {
     Patient patient1 = new(1, "Jimin", 20, "diabetics");
     patient1.AddPatient(patient1);
