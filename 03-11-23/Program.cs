@@ -1,6 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
 /*Console.WriteLine("Hello, World!");*/
 
+
+
+using Assignment1;
+using System;
+
+FamilyMember grandparent = new FamilyMember("Grandparent", 86);
+FamilyMember parent1 = new FamilyMember("Parent 1", 51);
+FamilyMember parent2 = new FamilyMember("Parent 2", 42);
+FamilyMember child1 = new FamilyMember("Child 1", 7);
+FamilyMember child2 = new FamilyMember("Child 2", 5);
+
+grandparent.AddChild(parent1);
+grandparent.AddChild(parent2);
+parent1.AddChild(child1);
+parent2.AddChild(child2);
+
+FamilyTree familyTree = new FamilyTree(grandparent);
+familyTree.DisplayFamilyTree();
+
 /*using Assignment1;
 
 //using Assignment1.UserException;
@@ -54,7 +73,7 @@ do
 
 
 
-using Assignment1;
+
 
 
 /*using Assignment1;
